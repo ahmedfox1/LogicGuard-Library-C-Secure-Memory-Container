@@ -32,11 +32,12 @@ Just copy `LogicGuard.h` to your project folder. That's it!
 
 ```cpp
 #include "LogicGuard.h"
+```
 
-💻 Usage Examples
+## 💻 Usage Examples
 1. Protecting User Input (Runtime)
 Don't use std::cin for passwords!
-
+```cpp
 C++
 #include "LogicGuard.h"
 
@@ -52,10 +53,12 @@ int main() {
 }
 2. Hiding Hardcoded Strings (Compile-Time)
 Hide Admin keys or API Tokens from strings command or Hex Editors.
-
+```
+```cpp
 C++
 // The string "SUPER_SECRET" will NOT exist in the compiled .exe
 LG::String api_key = _S("SUPER_SECRET_KEY_123");
+```
 🧪 The "Cheat Engine" Challenge
 I challenge you to hack this library!
 
