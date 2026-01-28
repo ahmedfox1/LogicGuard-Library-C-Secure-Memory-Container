@@ -59,7 +59,7 @@ C++
 // The string "SUPER_SECRET" will NOT exist in the compiled .exe
 LG::String api_key = _S("SUPER_SECRET_KEY_123");
 ```
-##🧪 The "Cheat Engine" Challenge
+## 🧪 The "Cheat Engine" Challenge
 I challenge you to hack this library!
 
 Build the project in Release Mode.
@@ -70,7 +70,7 @@ Try to search for your password using Cheat Engine or Process Hacker.
 
 Result: You will find NOTHING. (0 Results).
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 Created with ❤️ and C++ by [Ahmed Sameh]
