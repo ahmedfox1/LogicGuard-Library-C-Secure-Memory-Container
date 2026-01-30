@@ -5,7 +5,29 @@
 #include <string>
 #include <vector>
 #include <random>
+
+#ifdef _WIN32
 #include <conio.h>
+#else
+#include <termios.h>
+#include <unistd.h>
+#endif
+
+inline int portable_getch() {
+#ifdef _WIN32
+    return _getch();
+#else
+    struct termios oldt, newt;
+    tcgetattr(STDIN_FILENO, &oldt);
+    newt = oldt;
+    newt.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+    int ch = getchar();
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    return ch;
+#endif
+}
+
 
 using namespace std;
 
@@ -85,7 +107,7 @@ namespace LG {
         raw.reserve(64);
 
         char ch;
-        while ((ch = _getch()) != '\r') {
+        while ((ch = portable_getch()) != '\r') {
             if (ch == '\b') {
                 if (!raw.empty()) {
                     if (mask) cout << "\b \b";
